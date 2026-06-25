@@ -35,13 +35,54 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-image: linear-gradient(rgba(17, 11, 8, 0.72), rgba(17, 11, 8, 0.72)), url("./assets/wood-bg.png");
+  background-image: linear-gradient(rgba(17, 11, 8, 0.76), rgba(17, 11, 8, 0.76)), url("./assets/wood-bg.png");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* High legibility base */
+  line-height: 1.6;
+}
+
+/* ── Custom Premium Sizing & Legibility Utilities ──────────────── */
+@layer utilities {
+  /* High-contrast and highly legible B2B body copy */
+  .text-readable-body {
+    @apply text-stone-200 text-base md:text-lg leading-relaxed font-normal;
+  }
+  
+  .text-readable-sub {
+    @apply text-stone-300 text-sm md:text-base leading-relaxed font-normal;
+  }
+
+  .text-readable-muted {
+    @apply text-stone-400 text-xs md:text-sm leading-normal;
+  }
+
+  /* Clear high-contrast text tags */
+  .text-contrast-white {
+    @apply text-white font-semibold;
+  }
+
+  .text-contrast-gold {
+    @apply text-[#D4AF37] font-semibold;
+  }
+
+  /* Touch-friendly larger buttons with elegant micro-interactions */
+  .btn-premium-primary {
+    @apply inline-flex items-center justify-center gap-2.5 bg-[#D4AF37] hover:bg-[#b8962e] text-[#2C2520] font-bold px-8 py-4 rounded-xl transition-all duration-300 text-base tracking-wide shadow-lg shadow-[#D4AF37]/10 hover:shadow-[#D4AF37]/20 hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+  }
+
+  .btn-premium-secondary {
+    @apply inline-flex items-center justify-center gap-2.5 border-2 border-white/20 hover:border-[#D4AF37] hover:text-[#D4AF37] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-base tracking-wide backdrop-blur-sm hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+  }
+
+  /* Spacious B2B container and layout padding defaults */
+  .section-container-padded {
+    @apply py-24 sm:py-32 lg:py-40;
+  }
 }
 
 /* ── Reduced motion ────────────────────────────────── */
@@ -56,13 +97,13 @@ body {
 
 /* ── Custom scrollbar — minimal and on-brand ───────── */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: #231c18;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4af3760;
+  background: #d4af3740;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {

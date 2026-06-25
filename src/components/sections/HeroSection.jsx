@@ -8,6 +8,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Layers } from "lucide-react";
+import SplitText from "../ui/SplitText";
 
 // ── Animation variants ──────────────────────
 const STAGGER_CONTAINER = {
@@ -39,9 +40,9 @@ const FADE_UP = {
   },
 };
 
-// Placeholder static hero image (swap with a <video> tag in production)
+// Premium stacked plywood boards showing layered edges and rich wood grains
 const HERO_BG =
-  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800&q=80"; // warehouse interior
+  "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1800&q=80";
 
 export default function HeroSection() {
   const heroRef = useRef(null);
@@ -93,15 +94,15 @@ export default function HeroSection() {
           {/* Eyebrow label */}
           <div className="overflow-hidden mb-6">
             <motion.div variants={REVEAL_ITEM} className="flex items-center gap-3">
-              <div className="w-8 h-px bg-[#D4AF37]" />
-              <span className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-medium">
+              <div className="w-10 h-px bg-[#D4AF37]" />
+              <span className="text-[#D4AF37] text-sm tracking-[0.3em] uppercase font-bold">
                 Jodhpur's Premier B2B Timber Wholesale
               </span>
             </motion.div>
           </div>
 
           {/* Main headline — each line is a separate overflow:hidden mask */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] mb-6">
             {["Rajasthan's", "Trusted Supply", "Chain for Wood."].map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.span
@@ -119,28 +120,31 @@ export default function HeroSection() {
           </h1>
 
           {/* Sub-headline */}
-          <div className="overflow-hidden mb-10">
+          <div className="mb-8 overflow-hidden">
             <motion.p
               variants={REVEAL_ITEM}
-              className="text-stone-300 text-lg sm:text-xl max-w-xl leading-relaxed"
+              className="text-stone-200 text-base sm:text-lg max-w-xl leading-relaxed font-normal"
             >
-              Over 500+ retailers and contractors trust us every month. Marine ply,
-              blockboards, flush doors, and premium veneers — all from one warehouse, with same-week delivery across Rajasthan.
+              <SplitText delay={0.6}>
+                Over 500+ retailers and contractors trust us every month. Marine ply, blockboards, flush doors, and premium veneers — all from one warehouse, with same-week delivery across Rajasthan.
+              </SplitText>
             </motion.p>
           </div>
 
           {/* CTAs */}
           <motion.div variants={FADE_UP} className="flex flex-wrap gap-4">
             <a
-              href="#catalog"
-              className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8962e] text-[#2C2520] font-semibold px-8 py-4 rounded-lg transition-colors duration-200 text-sm tracking-wide"
+              href="#configurator"
+              data-magnetic
+              className="btn-premium-primary text-sm px-7 py-3.5 shadow-xl shadow-[#D4AF37]/15"
             >
               <Layers size={16} />
-              Browse the Catalog
+              Explore Finishes
             </a>
             <a
               href="#retailer-hub"
-              className="inline-flex items-center gap-2 border border-white/30 hover:border-[#D4AF37] hover:text-[#D4AF37] text-white/80 font-medium px-8 py-4 rounded-lg transition-all duration-200 text-sm tracking-wide backdrop-blur-sm"
+              data-magnetic
+              className="btn-premium-secondary text-sm px-7 py-3.5 shadow-xl shadow-black/30"
             >
               Become a Dealer Partner
             </a>
@@ -166,13 +170,13 @@ export default function HeroSection() {
 
       {/* ── Stock status badge ── */}
       <motion.div
-        className="absolute top-24 right-6 sm:right-10 lg:right-16 z-10"
+        className="absolute top-16 right-6 sm:right-10 lg:right-16 z-10"
         initial={{ opacity: 0, scale: 0.85 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.6, duration: 0.5, type: "spring" }}
       >
-        <div className="bg-emerald-900/60 border border-emerald-500/30 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <div className="bg-emerald-900/60 border border-emerald-500/30 backdrop-blur-sm rounded-full px-3.5 py-1.5 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-emerald-300 text-xs font-medium tracking-wide">
             Massive Stock Available
           </span>

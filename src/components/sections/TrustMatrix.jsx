@@ -58,28 +58,28 @@ export default function TrustMatrix() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="trust" ref={ref} className="relative py-24 lg:py-32">
+    <section id="trust" ref={ref} className="relative py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section header */}
         <motion.div
-          className="max-w-2xl mb-16"
+          className="max-w-3xl mb-10"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-px bg-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase font-medium">
+            <div className="w-8 h-px bg-[#D4AF37]" />
+            <span className="text-[#D4AF37] text-sm tracking-[0.25em] uppercase font-bold">
               Our Scale
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#FDFBF7] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FDFBF7] leading-tight">
             Numbers that prove we're{" "}
             <span className="text-[#D4AF37]">Rajasthan's backbone.</span>
           </h2>
-          <p className="text-stone-300 mt-4 text-lg leading-relaxed">
+          <p className="text-stone-200 mt-4 text-base leading-relaxed">
             When your project can't afford delays, you need a supplier whose scale ensures
             your order ships the same week — every time.
           </p>
@@ -91,26 +91,26 @@ export default function TrustMatrix() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden mb-16 border border-white/5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-10"
         >
           {STATS.map(({ icon: Icon, end, suffix, label, sublabel }) => (
             <motion.div
               key={label}
               variants={ITEM}
-              className="bg-white/5 backdrop-blur-sm p-8 lg:p-10 group hover:bg-[#D4AF37]/10 transition-all duration-300"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 lg:p-6 group hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/30 transition-all duration-300 shadow-lg shadow-black/20"
             >
-              <div className="w-10 h-10 rounded-lg bg-[#D4AF37]/10 group-hover:bg-[#D4AF37]/20 flex items-center justify-center mb-6 transition-colors">
-                <Icon size={18} className="text-[#D4AF37]" />
+              <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 group-hover:bg-[#D4AF37]/20 flex items-center justify-center mb-4 transition-colors">
+                <Icon size={22} className="text-[#D4AF37]" />
               </div>
 
-              <div className="text-4xl lg:text-5xl font-black text-white transition-colors mb-2 leading-none">
+              <div className="text-4xl lg:text-5xl font-black text-white transition-colors mb-2.5 leading-none">
                 <StatCounter end={end} suffix={suffix} duration={2000} />
               </div>
 
-              <p className="font-semibold text-stone-200 group-hover:text-white transition-colors text-sm mb-1">
+              <p className="font-bold text-stone-100 group-hover:text-white transition-colors text-sm md:text-base mb-1.5 leading-snug">
                 {label}
               </p>
-              <p className="text-stone-400 group-hover:text-stone-300 text-xs leading-snug">
+              <p className="text-stone-300 group-hover:text-stone-200 text-xs md:text-sm leading-relaxed">
                 {sublabel}
               </p>
             </motion.div>
@@ -119,19 +119,19 @@ export default function TrustMatrix() {
 
         {/* Certification badges */}
         <motion.div
-          className="flex flex-wrap items-center gap-3"
+          className="flex flex-wrap items-center gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <span className="text-stone-400 text-xs uppercase tracking-widest mr-2">
+          <span className="text-stone-300 text-sm uppercase tracking-widest mr-3 font-extrabold">
             Certifications:
           </span>
           {TRUSTED_CERTIFICATIONS.map((cert) => (
             <span
               key={cert}
-              className="px-4 py-2 rounded-full border border-white/10 text-stone-300 text-xs font-medium tracking-wide bg-white/5 backdrop-blur-sm"
+              className="px-6 py-3 rounded-full border border-white/15 text-stone-200 text-sm font-semibold tracking-wide bg-white/5 backdrop-blur-sm hover:border-[#D4AF37]/40 hover:text-white transition-colors duration-200"
             >
               ✓ {cert}
             </span>

@@ -80,34 +80,34 @@ export default function ServiceTheater() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
 
       {/* ── Content ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
 
         {/* Section header */}
         <motion.div
-          className="max-w-2xl mb-14"
+          className="max-w-3xl mb-10"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-px bg-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase font-medium">
+            <div className="w-8 h-px bg-[#D4AF37]" />
+            <span className="text-[#D4AF37] text-sm tracking-[0.25em] uppercase font-bold">
               Services
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
             We don't just sell wood.{" "}
             <span className="text-[#D4AF37]">We finish it.</span>
           </h2>
-          <p className="text-stone-300 text-lg leading-relaxed">
+          <p className="text-stone-200 text-base leading-relaxed">
             Our in-house polishing workshop, cutting facility, and treatment plant
             mean you receive trade-ready stock — not raw material you still need to process.
           </p>
         </motion.div>
 
         {/* ── Main grid: Slider + Service cards ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-start">
 
           {/* Before/After Slider */}
           <motion.div
@@ -116,8 +116,8 @@ export default function ServiceTheater() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="mb-5">
-              <p className="text-stone-400 text-sm">
+            <div className="mb-6">
+              <p className="text-stone-200 text-base sm:text-lg font-bold">
                 Drag the handle to see the transformation ↓
               </p>
             </div>
@@ -128,20 +128,20 @@ export default function ServiceTheater() {
             />
 
             {/* Caption */}
-            <div className="mt-5 flex items-center gap-4 text-xs text-stone-400">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-stone-500" />
+            <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-stone-300 font-semibold">
+              <span className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-stone-500" />
                 Unpolished — AS-IS from supplier
               </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
+              <span className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37]" />
                 After our in-house polishing
               </span>
             </div>
           </motion.div>
 
           {/* Service cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {SERVICES.map((svc, i) => (
               <motion.div
                 key={svc.title}
@@ -150,18 +150,18 @@ export default function ServiceTheater() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-5 hover:bg-white/10 hover:border-[#D4AF37]/30 transition-all duration-300 group"
+                className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 hover:border-[#D4AF37]/35 transition-all duration-300 group shadow-lg"
               >
-                <div className="w-9 h-9 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center mb-4 group-hover:bg-[#D4AF37]/25 transition-colors">
-                  <svc.icon size={16} className="text-[#D4AF37]" />
+                <div className="w-11 h-11 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center mb-5 group-hover:bg-[#D4AF37]/25 transition-colors">
+                  <svc.icon size={20} className="text-[#D4AF37]" />
                 </div>
 
-                <span className="inline-block text-[10px] tracking-widest uppercase text-[#D4AF37]/70 font-medium mb-2">
+                <span className="inline-block text-xs tracking-widest uppercase text-[#D4AF37] font-bold mb-2.5">
                   {svc.tag}
                 </span>
 
-                <h3 className="text-white font-semibold text-base mb-2">{svc.title}</h3>
-                <p className="text-stone-400 text-sm leading-relaxed">{svc.desc}</p>
+                <h3 className="text-white font-bold text-lg mb-2">{svc.title}</h3>
+                <p className="text-stone-200 text-base leading-relaxed">{svc.desc}</p>
               </motion.div>
             ))}
           </div>

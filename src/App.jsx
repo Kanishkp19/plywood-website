@@ -1,20 +1,24 @@
 /**
  * App.jsx
  * Application root. Wraps the app in:
+ *   - SmoothScrollProvider (global Lenis smooth scrolling)
  *   - QuoteProvider  (global RFQ state)
  * Renders:
  *   - Navbar
- *   - Home page (all 5 sections)
+ *   - Home page (all 9 B2B sections)
  *   - Footer
  *   - QuoteDrawer (portal-style slide-in panel)
+ *   - CustomCursor (high-performance GSAP pointer)
  *
  * WhatsApp floating button pinned to bottom-right on all pages.
  */
 
 import { QuoteProvider } from "./context/QuoteContext";
+import { SmoothScrollProvider } from "./context/SmoothScroll";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import QuoteDrawer from "./components/ui/QuoteDrawer";
+import CustomCursor from "./components/ui/CustomCursor";
 import Home from "./pages/Home";
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
@@ -41,21 +45,26 @@ function WhatsAppFAB() {
 
 export default function App() {
   return (
-    <QuoteProvider>
-      {/* Sticky navigation */}
-      <Navbar />
+    <SmoothScrollProvider>
+      <QuoteProvider>
+        {/* Custom liquid cursor with magnetic snapping */}
+        <CustomCursor />
 
-      {/* Main page content */}
-      <Home />
+        {/* Sticky navigation */}
+        <Navbar />
 
-      {/* Footer */}
-      <Footer />
+        {/* Main page content */}
+        <Home />
 
-      {/* RFQ slide-in drawer */}
-      <QuoteDrawer />
+        {/* Footer */}
+        <Footer />
 
-      {/* WhatsApp floating action button */}
-      <WhatsAppFAB />
-    </QuoteProvider>
+        {/* RFQ slide-in drawer */}
+        <QuoteDrawer />
+
+        {/* WhatsApp floating action button */}
+        <WhatsAppFAB />
+      </QuoteProvider>
+    </SmoothScrollProvider>
   );
 }

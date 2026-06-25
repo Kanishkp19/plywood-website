@@ -67,9 +67,9 @@ function DocCard({ doc, unlocked, onClick }) {
   return (
     <motion.div
       onClick={onClick}
-      className={`relative rounded-xl border p-5 cursor-pointer transition-all duration-200 group ${
+      className={`relative rounded-2xl border p-6 cursor-pointer transition-all duration-200 group ${
         unlocked
-          ? "bg-white/8 border-white/15 hover:border-[#D4AF37]/40 hover:bg-white/12"
+          ? "bg-white/8 border-white/15 hover:border-[#D4AF37]/45 hover:bg-white/12"
           : "bg-white/3 border-white/8 hover:bg-white/6 hover:border-white/15"
       }`}
       whileHover={{ y: -2 }}
@@ -77,14 +77,14 @@ function DocCard({ doc, unlocked, onClick }) {
     >
       {/* Accent top strip */}
       <div
-        className="absolute top-0 left-0 right-0 h-0.5 rounded-t-xl opacity-60"
+        className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl opacity-60"
         style={{ background: doc.accent }}
       />
 
       {/* Lock / Unlock icon */}
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-start justify-between mb-4">
         <span
-          className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full"
+          className="text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full"
           style={{
             background: doc.accent + "22",
             color: doc.accent,
@@ -93,28 +93,28 @@ function DocCard({ doc, unlocked, onClick }) {
         >
           {doc.category}
         </span>
-        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center transition-colors group-hover:bg-white/10">
+        <div className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center transition-colors group-hover:bg-white/10">
           {unlocked ? (
-            <Unlock size={14} className="text-[#D4AF37]" />
+            <Unlock size={16} className="text-[#D4AF37]" />
           ) : (
-            <Lock size={14} className="text-stone-500 group-hover:text-stone-300" />
+            <Lock size={16} className="text-stone-400 group-hover:text-stone-300" />
           )}
         </div>
       </div>
 
-      <FileText size={20} className="mb-3" style={{ color: doc.accent }} />
+      <FileText size={24} className="mb-3.5" style={{ color: doc.accent }} />
 
-      <p className="text-white font-semibold text-sm leading-snug mb-2">{doc.name}</p>
-      <p className="text-stone-400 text-xs leading-relaxed mb-3">{doc.desc}</p>
+      <p className="text-white font-extrabold text-base md:text-lg leading-snug mb-2.5">{doc.name}</p>
+      <p className="text-stone-200 text-sm leading-relaxed mb-4">{doc.desc}</p>
 
       <div className="flex items-center justify-between">
-        <span className="text-stone-500 text-xs">{doc.pages} pages · PDF</span>
+        <span className="text-stone-400 text-sm font-semibold">{doc.pages} pages · PDF</span>
         {unlocked ? (
-          <span className="text-[#D4AF37] text-xs font-semibold flex items-center gap-1">
-            <CheckCircle size={11} /> Ready to send
+          <span className="text-[#D4AF37] text-sm font-bold flex items-center gap-1.5">
+            <CheckCircle size={14} /> Ready to send
           </span>
         ) : (
-          <span className="text-stone-600 text-xs">Enter number to unlock</span>
+          <span className="text-stone-400 text-sm font-semibold">Enter number to unlock</span>
         )}
       </div>
     </motion.div>
@@ -166,39 +166,39 @@ export default function TechVault() {
   }
 
   return (
-    <section id="tech-vault" className="relative py-24 lg:py-32">
+    <section id="tech-vault" className="relative py-14 lg:py-20">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
-          className="max-w-2xl mb-14"
+          className="max-w-3xl mb-20"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-px bg-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase font-medium">
+            <div className="w-8 h-px bg-[#D4AF37]" />
+            <span className="text-[#D4AF37] text-sm tracking-[0.25em] uppercase font-bold">
               Technical Download Vault
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#FDFBF7] leading-tight">
+          <h2 className="text-5xl sm:text-6xl font-bold text-[#FDFBF7] leading-tight">
             Certifications your clients{" "}
             <span className="text-[#D4AF37]">need to see.</span>
           </h2>
-          <p className="text-stone-300 mt-4 text-lg leading-relaxed">
+          <p className="text-stone-200 mt-6 text-xl leading-relaxed">
             ISI certificates, BWR test reports, fire-retardancy compliance, and our full product catalog — all in one place. Enter your number below to unlock and request any document.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 xl:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 xl:gap-20 items-start">
 
           {/* ── Document grid ── */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-5"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -229,7 +229,7 @@ export default function TechVault() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:sticky lg:top-28"
           >
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-7">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
 
               <AnimatePresence mode="wait">
                 {submitted ? (
@@ -237,19 +237,19 @@ export default function TechVault() {
                     key="success"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-6 space-y-4"
+                    className="text-center py-8 space-y-5"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 flex items-center justify-center mx-auto">
-                      <CheckCircle size={28} className="text-[#D4AF37]" />
+                    <div className="w-20 h-20 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 flex items-center justify-center mx-auto">
+                      <CheckCircle size={36} className="text-[#D4AF37]" />
                     </div>
-                    <p className="text-white font-bold text-lg">Request Sent!</p>
-                    <p className="text-stone-300 text-sm leading-relaxed">
+                    <p className="text-white font-extrabold text-xl animate-pulse">Request Sent!</p>
+                    <p className="text-stone-200 text-base leading-relaxed font-semibold">
                       Our team will WhatsApp you the requested documents to{" "}
-                      <span className="text-white font-medium">{phone}</span> within 2 hours.
+                      <span className="text-[#D4AF37] font-extrabold">{phone}</span> within 2 hours.
                     </p>
                     <button
                       onClick={() => { setSubmitted(false); setSelected(new Set()); setPhone(""); }}
-                      className="text-xs text-stone-500 hover:text-stone-300 transition-colors"
+                      className="text-sm font-bold text-[#D4AF37] hover:underline"
                     >
                       Request different documents →
                     </button>
@@ -258,25 +258,25 @@ export default function TechVault() {
                   <motion.form
                     key="form"
                     onSubmit={handleSubmit}
-                    className="space-y-5"
+                    className="space-y-6"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                   >
                     {/* Lock icon header */}
-                    <div className="flex items-center gap-3 mb-1">
-                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${
+                    <div className="flex items-center gap-3.5 mb-2">
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
                         unlocked ? "bg-[#D4AF37]/15" : "bg-white/5"
                       }`}>
                         {unlocked
-                          ? <Unlock size={16} className="text-[#D4AF37]" />
-                          : <Lock size={16} className="text-stone-400" />
+                          ? <Unlock size={20} className="text-[#D4AF37]" />
+                          : <Lock size={20} className="text-stone-400" />
                         }
                       </div>
                       <div>
-                        <p className="text-white font-semibold text-sm">
+                        <p className="text-white font-extrabold text-base md:text-lg">
                           {unlocked ? "Vault Unlocked" : "Unlock the Vault"}
                         </p>
-                        <p className="text-stone-500 text-xs">
+                        <p className="text-stone-300 text-sm mt-0.5 font-medium">
                           {unlocked
                             ? "Select documents above, then request"
                             : "Enter your mobile number to access documents"}
@@ -286,22 +286,22 @@ export default function TechVault() {
 
                     {/* Phone input */}
                     <div>
-                      <label className="text-xs text-stone-400 mb-2 block tracking-wide">
+                      <label className="text-sm text-stone-200 font-semibold mb-2.5 block tracking-wide">
                         Your WhatsApp Number
                       </label>
-                      <div className="flex items-center gap-2 bg-white/5 border border-white/15 focus-within:border-[#D4AF37]/50 rounded-lg px-4 py-3 transition-colors">
-                        <Phone size={14} className="text-stone-500 shrink-0" />
-                        <span className="text-stone-400 text-sm">+91</span>
+                      <div className="flex items-center gap-3 bg-white/5 border border-white/15 focus-within:border-[#D4AF37] rounded-xl px-5 py-4 transition-all focus-within:ring-1 focus-within:ring-[#D4AF37]">
+                        <Phone size={18} className="text-stone-400 shrink-0" />
+                        <span className="text-stone-200 text-base font-bold">+91</span>
                         <input
                           type="tel"
                           value={phone}
                           onChange={(e) => { setPhone(e.target.value); setError(""); }}
                           placeholder="98765 43210"
                           maxLength={10}
-                          className="bg-transparent text-white text-sm outline-none w-full placeholder-stone-600"
+                          className="bg-transparent text-white text-base outline-none w-full placeholder-stone-500 font-semibold"
                         />
                         {isValid && (
-                          <CheckCircle size={14} className="text-emerald-400 shrink-0" />
+                          <CheckCircle size={18} className="text-emerald-400 shrink-0" />
                         )}
                       </div>
                     </div>
@@ -311,19 +311,19 @@ export default function TechVault() {
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
-                        className="bg-white/3 border border-white/8 rounded-xl p-4 space-y-2"
+                        className="bg-white/3 border border-white/8 rounded-xl p-5 space-y-2.5"
                       >
-                        <p className="text-xs text-stone-400 mb-3">
+                        <p className="text-xs text-stone-300 mb-3 font-semibold">
                           Selected ({selected.size} of {DOCUMENTS.length}) — click cards above to toggle
                         </p>
                         {selected.size === 0 ? (
-                          <p className="text-stone-600 text-xs italic">No documents selected yet.</p>
+                          <p className="text-stone-400 text-sm italic">No documents selected yet.</p>
                         ) : (
                           [...selected].map((id) => {
                             const doc = DOCUMENTS.find((d) => d.id === id);
                             return (
-                              <div key={id} className="flex items-center gap-2 text-xs text-stone-300">
-                                <CheckCircle size={11} className="text-[#D4AF37] shrink-0" />
+                              <div key={id} className="flex items-center gap-2.5 text-xs text-stone-200 font-medium">
+                                <CheckCircle size={13} className="text-[#D4AF37] shrink-0" />
                                 {doc?.name}
                               </div>
                             );
@@ -333,21 +333,22 @@ export default function TechVault() {
                     )}
 
                     {error && (
-                      <p className="text-red-400 text-xs">{error}</p>
+                      <p className="text-rose-400 text-sm font-semibold">{error}</p>
                     )}
 
                     <button
                       type="submit"
                       disabled={!isValid || selected.size === 0}
-                      className="w-full flex items-center justify-center gap-2.5 bg-[#D4AF37] disabled:bg-white/10 disabled:text-stone-600 hover:bg-[#b8962e] text-[#2C2520] font-bold py-4 px-6 rounded-xl transition-all duration-200 text-sm tracking-wide disabled:cursor-not-allowed"
+                      data-magnetic
+                      className="w-full flex items-center justify-center gap-2.5 bg-[#D4AF37] disabled:bg-white/10 disabled:text-stone-600 hover:bg-[#b8962e] text-[#2C2520] font-black py-4.5 px-6 rounded-xl transition-all duration-200 text-base tracking-wide disabled:cursor-not-allowed shadow-lg shadow-[#D4AF37]/10 disabled:shadow-none"
                     >
-                      <Send size={15} />
+                      <Send size={18} />
                       {selected.size === 0
                         ? "Select documents above"
                         : `Send ${selected.size} Document${selected.size > 1 ? "s" : ""} via WhatsApp`}
                     </button>
 
-                    <p className="text-stone-600 text-xs text-center leading-relaxed">
+                    <p className="text-stone-400 text-xs text-center leading-relaxed font-semibold">
                       Your number is used only to send documents. We do not share it with third parties.
                     </p>
                   </motion.form>
@@ -356,7 +357,7 @@ export default function TechVault() {
             </div>
 
             {/* Trust note */}
-            <p className="text-stone-500 text-xs text-center mt-4">
+            <p className="text-stone-200 text-sm text-center mt-6 font-semibold leading-relaxed">
               Documents are authentic. Certifications are renewed annually and available for physical inspection at our Jodhpur office.
             </p>
           </motion.div>
