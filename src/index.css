@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/**
+ * index.css
+ * Tailwind base + component + utility layers.
+ * Custom CSS variables for the "Industrial Luxury" palette.
+ * Smooth scrolling and reduced-motion accessibility.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ─────────────────────────────────── */
+:root {
+  /* Palette — matches blueprint exactly */
+  --cream:    #FDFBF7;
+  --charcoal: #2C2520;
+  --gold:     #D4AF37;
+  --gold-dim: #b8962e;
+
+  /* Typography scale */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+}
+
+/* ── Base resets ───────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-image: linear-gradient(rgba(17, 11, 8, 0.72), rgba(17, 11, 8, 0.72)), url("./assets/wood-bg.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Custom scrollbar — minimal and on-brand ───────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: #d4af3760;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ── Focus ring ────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
